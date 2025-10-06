@@ -95,7 +95,12 @@ puts "📊 Selisih                : #{selisih}"
 
 ```
 
-
+```
+Output
+💵 Pengguna saldo IDR > 0 : 56
+💵 Pengguna saldo USD > 0 : 44
+📊 Selisih                 : 12
+```
 
 `b`**🔍 Cek via REST API**
 
