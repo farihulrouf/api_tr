@@ -12,6 +12,14 @@
 
 > ![Infrastruktur Aplikasi](assets/pic_1.png)
 
+
+**3. Dari struktur table yang sudah anda buat pada pertanyaan sebelumnya, buatlah query yang efektif dan efisien (SQL atau ActiveRecord Ruby boleh) untuk mendapatkan data-data ini:**  
+> a. Top 10 pengguna yang penambahan saldo BTC-nya terbanyak pada minggu ini..  
+> b. Berapa selisih jumlah pengguna yang hold/punya saldo IDR diatas 0 dan USD diatas 0?.  
+> c. Pada hari apa paling banyak terjadi perubahan saldo IDR?
+
+
+
 **4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
 > ![Infrastruktur Aplikasi](assets/pic_2.png)
 >
