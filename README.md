@@ -18,6 +18,31 @@
 > b. Berapa selisih jumlah pengguna yang hold/punya saldo IDR diatas 0 dan USD diatas 0?.  
 > c. Pada hari apa paling banyak terjadi perubahan saldo IDR?
 
+---
+
+**a. Source Code untuk menampilkan Top 10 Pengguna dengan Penambahan Saldo BTC Minggu Ini**
+```ruby
+# Jalankan di Rails Console (rails c)
+start_date = Date.today.beginning_of_week
+end_date   = Date.today.end_of_week
+
+top_users = WalletTransaction
+  .joins(wallet: [:currency, :user])
+  .where(currencies: { code: 'BTC' })
+  .where('wallet_transactions.amount > 0')
+  .where(wallet_transactions: { created_at: start_date..end_date })
+  .group('users.id', 'users.name')
+  .sum(:amount)
+  .sort_by { |_, total| -total }
+  .first(10)
+
+puts "📅 Periode: #{start_date} - #{end_date}"
+puts "🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Ini:"
+puts "---------------------------------------------------------------"
+top_users.each_with_index do |((_, user_name), total_amount), i|
+  puts "#{i + 1}. #{user_name.ljust(25)} | #{total_amount.round(8)} BTC"
+end
+puts "---------------------------------------------------------------"
 
 
 **4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
