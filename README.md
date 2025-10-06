@@ -71,6 +71,54 @@ curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&star
 
 ```
 
+```bash
+{
+  "currency": "BTC",
+  "period": "2025-10-01 to 2025-10-07",
+  "top_users": [
+    {
+      "user": "Alberta Stoltenberg",
+      "total_amount": 0.1298
+    },
+    {
+      "user": "Maxwell Morar IV",
+      "total_amount": 0.12752
+    },
+    {
+      "user": "Dr. Leilani Carroll",
+      "total_amount": 0.11282
+    },
+    {
+      "user": "Lyla O'Hara",
+      "total_amount": 0.11161
+    },
+    {
+      "user": "Gov. Wally Hagenes",
+      "total_amount": 0.1077
+    },
+    {
+      "user": "Simonne Funk",
+      "total_amount": 0.10398
+    },
+    {
+      "user": "Troy McKenzie DDS",
+      "total_amount": 0.09902
+    },
+    {
+      "user": "Gaston Hudson",
+      "total_amount": 0.09518
+    },
+    {
+      "user": "Rufus Bednar",
+      "total_amount": 0.09431
+    },
+    {
+      "user": "Randal Wiza",
+      "total_amount": 0.09397
+    }
+  ]
+}
+```
 
 **b. selisih jumlah pengguna yang hold/punya saldo IDR diatas 0 dan USD diatas 0?**
 ```ruby
