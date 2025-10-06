@@ -5,13 +5,15 @@
 
 ---
 
-**2. Mengapa diperlukan database master & replica (slave) dalam pengoperasian sistem di environment production? Jelaskan!**  
-> Karena Master itu tempat nulis data, Replica itu tempat baca data Salinanya. Dengan begitu sistem jadi lebih cepat, aman, dan gak gampang Rusak. Kalau sewaktu waktu terjadi sesuatu yang ga di inginkan  dengan yang utama tinggal ambil aja salinanya.
+**2. Gambarkan menggunakan TRD/ERD struktur table yang efektif dan efisien untuk sistem wallet pada aplikasi anda dengan requirement sebagai berikut:**  
+> a. Aplikasi ini memiliki beberapa currency, jadi pengguna bisa punya saldo IDR, USD, BTC, dll.  
+> b. Setiap perubahan saldo milik pengguna harus tercatat sehingga memudahkan tracking.  
+> c. Berapa field dan table yang dibutuhkan bebas tapi disesuaikan dengan mendekati kenyataan.
 
----
+> ![Infrastruktur Aplikasi](assets/pic_1.png)
 
-**4. ambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
-> ![Infrastruktur Aplikasi](assets/infrastruktur.png)
+**4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
+> ![Infrastruktur Aplikasi](assets/pic_2.png)
 >
 ---
 
