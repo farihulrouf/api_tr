@@ -159,7 +159,7 @@ puts "📅 #{result[0]} => 💰 #{result[1].round(2)}"
 ```
 Output
 📆 Hari dengan total perubahan saldo IDR terbesar:
-📅 2025-10-03  =>  💰 20,826,772.00
+📅 2025-10-03  =>  💰 26851498.0
 
 ```
 
