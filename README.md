@@ -43,7 +43,7 @@ top_users.each_with_index do |((_, user_name), total_amount), i|
   puts "#{i + 1}. #{user_name.ljust(25)} | #{total_amount.round(8)} BTC"
 end
 puts "---------------------------------------------------------------"
-
+```
 
 **4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
 > ![Infrastruktur Aplikasi](assets/pic_2.png)
