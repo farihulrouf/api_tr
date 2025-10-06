@@ -106,7 +106,7 @@ Output
 
 **Contoh Request dengan Bearer Token (menggunakan cURL):**
 ```bash
-curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&start_date=2025-10-01&end_date=2025-10-07" \
+curl -X GET "http://141.11.25.96:3000/reports/balance_comparison?currency1=IDR&currency2=USD" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.0JsA7s0F251ERbLdyNgVMpppI6iv8sH52Lj4wDpP4fI" \
   -H "Content-Type: application/json"
 
