@@ -22,24 +22,26 @@
 
 **a. Source Code untuk menampilkan Top 10 Pengguna dengan Penambahan Saldo BTC Minggu Ini**
 ```ruby
-# Jalankan di Rails Console (rails c)
+# Tentukan periode minggu lalu
 start_date = 1.week.ago.to_date.beginning_of_week
 end_date   = 1.week.ago.to_date.end_of_week
 
-top_users = WalletTransaction
+# Jalankan query yang sama dengan ReportsController#top_crypto_users
+transactions = WalletTransaction
   .joins(wallet: [:currency, :user])
-  .where(currencies: { code: 'BTC' })
-  .where('wallet_transactions.amount > 0')
-  .where(wallet_transactions: { created_at: start_date..end_date })
-  .group('users.id', 'users.name')
+  .where(currencies: { code: 'BTC' }, tx_type: 'topup')
+  .where(created_at: start_date.beginning_of_day..end_date.end_of_day)
+
+top_users = transactions
+  .group('users.name')
   .sum(:amount)
   .sort_by { |_, total| -total }
   .first(10)
 
 puts "📅 Periode: #{start_date} - #{end_date}"
-puts "🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Lalu:"
+puts "🏆 Top 10 Pengguna dengan Penambahan Saldo BTC (tx_type='topup') Minggu Lalu:"
 puts "---------------------------------------------------------------"
-top_users.each_with_index do |((_, user_name), total_amount), i|
+top_users.each_with_index do |(user_name, total_amount), i|
   puts "#{i + 1}. #{user_name.ljust(25)} | #{total_amount.round(8)} BTC"
 end
 puts "---------------------------------------------------------------"
@@ -47,26 +49,28 @@ puts "---------------------------------------------------------------"
 ```
 
 ```
-📅 Periode: 2025-09-29 - 2025-10-05
-🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Lalu:
----------------------------------------------------------------
-1. Damaris Wunsch            | 0.16568 BTC
-2. Alberta Stoltenberg       | 0.15375 BTC
-3. Lenore Kulas              | 0.11915 BTC
-4. Conrad Kiehn              | 0.11282 BTC
-5. Rufus Bednar              | 0.11272 BTC
-6. Rep. Dale Hermann         | 0.10971 BTC
-7. Barry Corwin              | 0.10663 BTC
-8. Valentin Vandervort       | 0.10377 BTC
-9. Cary Hyatt                | 0.09902 BTC
-10. Fawn Reynolds             | 0.09806 BTC
----------------------------------------------------------------
+📅 Periode: 2025-09-29 s.d. 2025-10-05
+🏆 Top 10 Pengguna dengan Penambahan Saldo BTC (tx_type = 'topup') Minggu Lalu
+=================================================================
+ No | Nama Pengguna              | Total Penambahan (BTC)
+-----------------------------------------------------------------
+  1 | Damaris Wunsch             | 0.16568
+  2 | Alberta Stoltenberg        | 0.15375
+  3 | Cary Hyatt                 | 0.13987
+  4 | Dr. Leilani Carroll        | 0.12892
+  5 | Gaston Hudson              | 0.12346
+  6 | Lenore Kulas               | 0.11915
+  7 | Aracely Runolfsson         | 0.11553
+  8 | Conrad Kiehn               | 0.11282
+  9 | Rufus Bednar               | 0.11272
+ 10 | Rep. Dale Hermann          | 0.10971
+-----------------------------------------------------------------
 ```
 `a`**🔍 Cek via REST API**
 
 **Contoh Request dengan Bearer Token (menggunakan cURL):**
 ```bash
-curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&start_date=2025-10-01&end_date=2025-10-07" \
+curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&start_date=2025-09-29&end_date=2025-10-05" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.0JsA7s0F251ERbLdyNgVMpppI6iv8sH52Lj4wDpP4fI" \
   -H "Content-Type: application/json"
 
@@ -75,50 +79,21 @@ curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&star
 ```bash
 {
   "currency": "BTC",
-  "period": "2025-10-01 to 2025-10-07",
+  "period": "2025-09-29 to 2025-10-05",
   "top_users": [
-    {
-      "user": "Alberta Stoltenberg",
-      "total_amount": 0.1298
-    },
-    {
-      "user": "Maxwell Morar IV",
-      "total_amount": 0.12752
-    },
-    {
-      "user": "Dr. Leilani Carroll",
-      "total_amount": 0.11282
-    },
-    {
-      "user": "Lyla O'Hara",
-      "total_amount": 0.11161
-    },
-    {
-      "user": "Gov. Wally Hagenes",
-      "total_amount": 0.1077
-    },
-    {
-      "user": "Simonne Funk",
-      "total_amount": 0.10398
-    },
-    {
-      "user": "Troy McKenzie DDS",
-      "total_amount": 0.09902
-    },
-    {
-      "user": "Gaston Hudson",
-      "total_amount": 0.09518
-    },
-    {
-      "user": "Rufus Bednar",
-      "total_amount": 0.09431
-    },
-    {
-      "user": "Randal Wiza",
-      "total_amount": 0.09397
-    }
+    { "user": "Damaris Wunsch", "total_amount": 0.16568 },
+    { "user": "Alberta Stoltenberg", "total_amount": 0.15375 },
+    { "user": "Cary Hyatt", "total_amount": 0.13987 },
+    { "user": "Dr. Leilani Carroll", "total_amount": 0.12892 },
+    { "user": "Gaston Hudson", "total_amount": 0.12346 },
+    { "user": "Lenore Kulas", "total_amount": 0.11915 },
+    { "user": "Aracely Runolfsson", "total_amount": 0.11553 },
+    { "user": "Conrad Kiehn", "total_amount": 0.11282 },
+    { "user": "Rufus Bednar", "total_amount": 0.11272 },
+    { "user": "Rep. Dale Hermann", "total_amount": 0.10971 }
   ]
 }
+
 ```
 
 **b. selisih jumlah pengguna yang hold/punya saldo IDR diatas 0 dan USD diatas 0?**
