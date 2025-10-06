@@ -23,8 +23,8 @@
 **a. Source Code untuk menampilkan Top 10 Pengguna dengan Penambahan Saldo BTC Minggu Ini**
 ```ruby
 # Jalankan di Rails Console (rails c)
-start_date = Date.today.beginning_of_week
-end_date   = Date.today.end_of_week
+start_date = 1.week.ago.to_date.beginning_of_week
+end_date   = 1.week.ago.to_date.end_of_week
 
 top_users = WalletTransaction
   .joins(wallet: [:currency, :user])
@@ -37,29 +37,30 @@ top_users = WalletTransaction
   .first(10)
 
 puts "📅 Periode: #{start_date} - #{end_date}"
-puts "🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Ini:"
+puts "🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Lalu:"
 puts "---------------------------------------------------------------"
 top_users.each_with_index do |((_, user_name), total_amount), i|
   puts "#{i + 1}. #{user_name.ljust(25)} | #{total_amount.round(8)} BTC"
 end
 puts "---------------------------------------------------------------"
-```
 
 ```
-🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Ini:
----------------------------------------------------------------------
- 1. Jake Huel                | 0.08291 BTC
- 2. Gale Feeney              | 0.06756 BTC
- 3. Mercedes Raynor          | 0.05831 BTC
- 4. Danna Osinski            | 0.05431 BTC
- 5. Magnolia Crooks DVM      | 0.04785 BTC
- 6. Amb. Franklyn Denesik    | 0.04411 BTC
- 7. Staci Konopelski         | 0.04339 BTC
- 8. Jayne Schoen             | 0.04323 BTC
- 9. Maxima Little            | 0.03943 BTC
-10. Val Ledner               | 0.03902 BTC
----------------------------------------------------------------------
 
+``` WalletTransaction Sum (4.4ms)  SELECT SUM("wallet_transactions"."amount") AS "sum_amount", "users"."id" AS "users_id", "users"."name" AS "users_name" FROM "wallet_transactions" INNER JOIN "wallets" ON "wallets"."id" = "wallet_transactions"."wallet_id" INNER JOIN "currencies" ON "currencies"."id" = "wallets"."currency_id" INNER JOIN "users" ON "users"."id" = "wallets"."user_id" WHERE "currencies"."code" = ? AND (wallet_transactions.amount > 0) AND "wallet_transactions"."created_at" BETWEEN ? AND ? GROUP BY "users"."id", "users"."name"  [["code", "BTC"], ["created_at", "2025-09-29"], ["created_at", "2025-10-05"]]
+📅 Periode: 2025-09-29 - 2025-10-05
+🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Lalu:
+---------------------------------------------------------------
+1. Damaris Wunsch            | 0.16568 BTC
+2. Alberta Stoltenberg       | 0.15375 BTC
+3. Lenore Kulas              | 0.11915 BTC
+4. Conrad Kiehn              | 0.11282 BTC
+5. Rufus Bednar              | 0.11272 BTC
+6. Rep. Dale Hermann         | 0.10971 BTC
+7. Barry Corwin              | 0.10663 BTC
+8. Valentin Vandervort       | 0.10377 BTC
+9. Cary Hyatt                | 0.09902 BTC
+10. Fawn Reynolds             | 0.09806 BTC
+---------------------------------------------------------------
 ```
 `a`**🔍 Cek via REST API**
 
