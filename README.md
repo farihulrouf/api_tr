@@ -10,6 +10,13 @@
 
 ---
 
+**4. ambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
+> ![Infrastruktur Aplikasi](assets/infrastruktur.png)
+>
+---
+
+
+
 **5. Untuk menjaga high availability sistem, bagaimana cara anda melakukan deployment tanpa harus mengalami down server sama sekali?**  
 > a-) BLUE -GREEN Deployment  
 >    → Blue versi yang di pakai saat ini  
