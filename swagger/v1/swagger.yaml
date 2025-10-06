@@ -1,0 +1,87 @@
+---
+openapi: 3.0.1
+info:
+  title: V Wallet API
+  version: v1
+  description: Dokumentasi API untuk laporan dan wallet pada sistem V Wallet
+paths:
+  "/reports/top_crypto_users":
+    get:
+      summary: top crypto users report
+      tags:
+      - Reports
+      description: Return list of top users based on crypto holdings
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        user_id:
+                          type: integer
+                        username:
+                          type: string
+                        total_crypto_value:
+                          type: number
+  "/reports/balance_comparison":
+    get:
+      summary: balance comparison report
+      tags:
+      - Reports
+      description: Compare balances between users or time periods
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  average_balance:
+                    type: number
+                  median_balance:
+                    type: number
+                  comparison_result:
+                    type: string
+  "/reports/top_balance_change_day":
+    get:
+      summary: top balance change day report
+      tags:
+      - Reports
+      description: Show the day with the largest balance change
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  date:
+                    type: string
+                    format: date
+                  total_change:
+                    type: number
+                  top_user:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                      username:
+                        type: string
+                      change:
+                        type: number
+servers:
+- url: "{protocol}://{defaultHost}"
+  variables:
+    protocol:
+      default: http
+    defaultHost:
+      default: localhost:3000
