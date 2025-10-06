@@ -112,6 +112,44 @@ curl -X GET "http://141.11.25.96:3000/reports/balance_comparison?currency1=IDR&c
 
 ```
 
+
+
+
+
+**c. Source Pada hari apa paling banyak terjadi perubahan saldo IDR??**
+```ruby
+# Jalankan di Rails Console (rails c)
+result = WalletTransaction
+           .joins(wallet: :currency)
+           .where(currencies: { code: 'IDR' })
+           .group("DATE(wallet_transactions.created_at)")
+           .sum(:amount)
+           .max_by { |_, total| total }
+
+puts "📆 Hari dengan total perubahan saldo IDR terbesar:"
+puts "📅 #{result[0]} => 💰 #{result[1].round(2)}"
+
+
+```
+
+```
+Output
+📆 Hari dengan total perubahan saldo IDR terbesar:
+📅 2025-10-03  =>  💰 20,826,772.00
+
+```
+
+`c`**🔍 Cek via REST API**
+
+**Contoh Request dengan Bearer Token (menggunakan cURL):**
+```bash
+curl -X GET "http://141.11.25.96:3000/reports/top_balance_change_day?currency=IDR" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.0JsA7s0F251ERbLdyNgVMpppI6iv8sH52Lj4wDpP4fI" \
+  -H "Content-Type: application/json"
+
+```
+
+
 **4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
 > ![Infrastruktur Aplikasi](assets/pic_2.png)
 >
