@@ -42,22 +42,22 @@
 ---
 
 **7. Bagaimana Anda mendesain sistem logging yang efisien dan mudah ditelusuri?**  
-> Catat yg penting penting saja, misal ada masalah (ERROR), Peringatan (WARNING), atau kejadian penting. TIdak di catat semua biar ga penuh  
-> Pakai FOrmat yg sama tiap catatan supaya gampang di baca dan di cari  
-> Bedakan Bersarkan jenis INFO (info biasa aja), WARNING (Perlu di perhatikan), ERROR (Ada masalah serius)  
-> Simpan di tempat yag mudah di cari, bisa bikin file txt di folder khusus bisa, di simpan ke db juga bisa  
-> Tambhakan id, dan waktu biar gampang nanti carinya  
-> Bersihkan Log biar ga numpuk  
-> JIka perlu kesepakatan kirim ke whatsapp Group yang terdiri dari Team Backend, jadi setiap orang bisa saling pantau (Di tempat kerja saya dulu saya bikin group WA nanti klo Log serius Ngirim ke Wa group)
+> a-) Catat yg penting penting saja, misal ada masalah (ERROR), Peringatan (WARNING), atau kejadian penting. TIdak di catat semua biar ga penuh  
+> b-)Pakai FOrmat yg sama tiap catatan supaya gampang di baca dan di cari  
+> c-)Bedakan Bersarkan jenis INFO (info biasa aja), WARNING (Perlu di perhatikan), ERROR (Ada masalah serius)  
+> d-)Simpan di tempat yag mudah di cari, bisa bikin file txt di folder khusus bisa, di simpan ke db juga bisa  
+> e-)Tambhakan id, dan waktu biar gampang nanti carinya  
+> f-)Bersihkan Log biar ga numpuk  
+> g-)JIka perlu kesepakatan kirim ke whatsapp Group yang terdiri dari Team Backend, jadi setiap orang bisa saling pantau (Di tempat kerja saya dulu saya bikin group WA nanti klo Log serius Ngirim ke Wa group)
 
 ---
 
 **8. Jelaskan cara Anda menangani memory leak atau thread leak dalam aplikasi backend.**  
-> Pantau penggunaan memori bisa pakai top, htop dan lainya di linux  
-> kalau di codingan pastikan tidak ada variabel global yag gak di pakai  
-> Jangan biarin cache / pool tumbuh tanpa batas, pakai size limit atau eviction policy.  
-> Setiap thread selesai, harus dihentikan / dilepas  
-> intinya pantau, batasi, bersihkan, gunakan pool / garbage collector.
+> a-)Pantau penggunaan memori bisa pakai top, htop dan lainya di linux  
+> b-)kalau di codingan pastikan tidak ada variabel global yag gak di pakai  
+> c-)Jangan biarin cache / pool tumbuh tanpa batas, pakai size limit atau eviction policy.  
+> d-)Setiap thread selesai, harus dihentikan / dilepas  
+> e-)intinya pantau, batasi, bersihkan, gunakan pool / garbage collector.
 
 ---
 
@@ -69,9 +69,9 @@
 ---
 
 **10. Bagaimana Anda memastikan kualitas kode di tim backend Anda?**  
-> Di cek temen tim → Code Review  
-> Sesuaikan Standard -> Style guide & linting  
-> Diuji -> Unit & Integration test  
-> Jaga permforma dengan monitoring dan logging  
-> Dicatat atau di dokumentasi  
-> Di perbaharui codinganya (refactoring)
+> a-) Di cek temen tim → Code Review  
+> b-) Sesuaikan Standard -> Style guide & linting  
+> c-) Diuji -> Unit & Integration test  
+> d-) Jaga permforma dengan monitoring dan logging  
+> e-) Dicatat atau di dokumentasi  
+> f-) Di perbaharui codinganya (refactoring)
