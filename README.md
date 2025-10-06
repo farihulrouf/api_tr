@@ -62,9 +62,9 @@
 ---
 
 **9. Bagaimana Anda membagi tugas dan tanggung jawab dalam tim backend?**  
-> Berdasarkan tugas dan modul misal modul Auth (Bikin login, Jwt dll) , API bisnis Logic (ngurusin API), Monitoring Performance (yang cek log, metrics, alert dll) . jadi setiap orang saya fokuskan ke 1 modul dlu atau bisa memungkinkan lebih dari 2 tergantung Prioritas, waktu, kondisi  
-> Koordinasi (bisa daily standup, diskusi dll) atau penggunaan tools seperti JIra, Notion untuk asign tugas  
-> Evaluasi berkala: lihat progres, bantu yang kesulitan
+> a -) Berdasarkan tugas dan modul misal modul Auth (Bikin login, Jwt dll) , API bisnis Logic (ngurusin API), Monitoring Performance (yang cek log, metrics, alert dll) . jadi setiap orang saya fokuskan ke 1 modul dlu atau bisa memungkinkan lebih dari 2 tergantung Prioritas, waktu, kondisi  
+> b- )Koordinasi (bisa daily standup, diskusi dll) atau penggunaan tools seperti JIra, Notion untuk asign tugas  
+> c- )Evaluasi berkala: lihat progres, bantu yang kesulitan
 
 ---
 
