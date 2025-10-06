@@ -45,6 +45,22 @@ end
 puts "---------------------------------------------------------------"
 ```
 
+```
+🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Ini:
+---------------------------------------------------------------------
+ 1. Jake Huel                | 0.08291 BTC
+ 2. Gale Feeney              | 0.06756 BTC
+ 3. Mercedes Raynor          | 0.05831 BTC
+ 4. Danna Osinski            | 0.05431 BTC
+ 5. Magnolia Crooks DVM      | 0.04785 BTC
+ 6. Amb. Franklyn Denesik    | 0.04411 BTC
+ 7. Staci Konopelski         | 0.04339 BTC
+ 8. Jayne Schoen             | 0.04323 BTC
+ 9. Maxima Little            | 0.03943 BTC
+10. Val Ledner               | 0.03902 BTC
+---------------------------------------------------------------------
+
+```
 `1`**🔍 Cek via REST API**
 
 **Contoh Request dengan Bearer Token (menggunakan cURL):**
@@ -78,6 +94,8 @@ puts "💵 Pengguna saldo USD > 0 : #{usd_users}"
 puts "📊 Selisih                : #{selisih}"
 
 ```
+
+
 
 `b`**🔍 Cek via REST API**
 
