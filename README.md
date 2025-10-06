@@ -121,9 +121,9 @@ puts "📊 Selisih                : #{selisih}"
 
 ```
 Output
-💵 Pengguna saldo IDR > 0 : 56
-💵 Pengguna saldo USD > 0 : 44
-📊 Selisih                 : 12
+💵 Pengguna saldo IDR > 0 : 53
+💵 Pengguna saldo USD > 0 : 50
+📊 Selisih                 : 3
 ```
 
 `b`**🔍 Cek via REST API**
