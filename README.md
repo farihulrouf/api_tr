@@ -61,7 +61,7 @@ puts "---------------------------------------------------------------"
 ---------------------------------------------------------------------
 
 ```
-`1`**🔍 Cek via REST API**
+`a`**🔍 Cek via REST API**
 
 **Contoh Request dengan Bearer Token (menggunakan cURL):**
 ```bash
