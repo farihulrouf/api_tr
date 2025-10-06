@@ -28,7 +28,7 @@
 >    → Dari segi user misal terapkan beberapa user / data yg di coba dulu versi baru  
 >    → JIka aman, Baru semua data pindahkan  
 >
-> d-) Pakai Load Balancer  
+> Pakai Load Balancer  
 >    → Load balancer membagi traffic ke beberapa server  
 >    → BIsa tambah server baru versi baru, turunkan server lama pelan pelan  
 >    → Jadi User tidak merakasan Downtime  
@@ -38,3 +38,40 @@
 
 **6. Menurut anda, manakah yang lebih baik diantara SQL dan NoSQL? Jelaskan alasannya.**  
 > Menurutku dua dua nya bagus, tergantung situasi aja, kita pakai SQL, NO SQL  ? . Di project sebelumnya saya pakai Elastic Database karena Data social media biasanya JSON: misal tweet, komentar, post di Instagram → banyak field, nested misal (user, entities, hastag, url gambar, video dll)., jadi tinggal masukin aja  nested JSON, array, dan query di dalamnya gampang. .dan saya akan pakai SQL buat nyimpen transaksi, saldo, dan data uang Kenapa? Karena SQL itu kayak lemari yang rapi banget ,Semua datanya punya kotak, label, dan aturan jelas.
+
+---
+
+**7. Bagaimana Anda mendesain sistem logging yang efisien dan mudah ditelusuri?**  
+> Catat yg penting penting saja, misal ada masalah (ERROR), Peringatan (WARNING), atau kejadian penting. TIdak di catat semua biar ga penuh  
+> Pakai FOrmat yg sama tiap catatan supaya gampang di baca dan di cari  
+> Bedakan Bersarkan jenis INFO (info biasa aja), WARNING (Perlu di perhatikan), ERROR (Ada masalah serius)  
+> Simpan di tempat yag mudah di cari, bisa bikin file txt di folder khusus bisa, di simpan ke db juga bisa  
+> Tambhakan id, dan waktu biar gampang nanti carinya  
+> Bersihkan Log biar ga numpuk  
+> JIka perlu kesepakatan kirim ke whatsapp Group yang terdiri dari Team Backend, jadi setiap orang bisa saling pantau (Di tempat kerja saya dulu saya bikin group WA nanti klo Log serius Ngirim ke Wa group)
+
+---
+
+**8. Jelaskan cara Anda menangani memory leak atau thread leak dalam aplikasi backend.**  
+> Pantau penggunaan memori bisa pakai top, htop dan lainya di linux  
+> kalau di codingan pastikan tidak ada variabel global yag gak di pakai  
+> Jangan biarin cache / pool tumbuh tanpa batas, pakai size limit atau eviction policy.  
+> Setiap thread selesai, harus dihentikan / dilepas  
+> intinya pantau, batasi, bersihkan, gunakan pool / garbage collector.
+
+---
+
+**9. Bagaimana Anda membagi tugas dan tanggung jawab dalam tim backend?**  
+> Berdasarkan tugas dan modul misal modul Auth (Bikin login, Jwt dll) , API bisnis Logic (ngurusin API), Monitoring Performance (yang cek log, metrics, alert dll) . jadi setiap orang saya fokuskan ke 1 modul dlu atau bisa memungkinkan lebih dari 2 tergantung Prioritas, waktu, kondisi  
+> Koordinasi (bisa daily standup, diskusi dll) atau penggunaan tools seperti JIra, Notion untuk asign tugas  
+> Evaluasi berkala: lihat progres, bantu yang kesulitan
+
+---
+
+**10. Bagaimana Anda memastikan kualitas kode di tim backend Anda?**  
+> Di cek temen tim → Code Review  
+> Sesuaikan Standard -> Style guide & linting  
+> Diuji -> Unit & Integration test  
+> Jaga permforma dengan monitoring dan logging  
+> Dicatat atau di dokumentasi  
+> Di perbaharui codinganya (refactoring)
