@@ -46,7 +46,7 @@ puts "---------------------------------------------------------------"
 
 ```
 
-``` WalletTransaction Sum (4.4ms)  SELECT SUM("wallet_transactions"."amount") AS "sum_amount", "users"."id" AS "users_id", "users"."name" AS "users_name" FROM "wallet_transactions" INNER JOIN "wallets" ON "wallets"."id" = "wallet_transactions"."wallet_id" INNER JOIN "currencies" ON "currencies"."id" = "wallets"."currency_id" INNER JOIN "users" ON "users"."id" = "wallets"."user_id" WHERE "currencies"."code" = ? AND (wallet_transactions.amount > 0) AND "wallet_transactions"."created_at" BETWEEN ? AND ? GROUP BY "users"."id", "users"."name"  [["code", "BTC"], ["created_at", "2025-09-29"], ["created_at", "2025-10-05"]]
+```
 📅 Periode: 2025-09-29 - 2025-10-05
 🏆 Top 10 Pengguna dengan Penambahan Saldo BTC Terbanyak Minggu Lalu:
 ---------------------------------------------------------------
