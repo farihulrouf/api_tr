@@ -55,6 +55,40 @@ curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&star
 
 ```
 
+
+**b. selisih jumlah pengguna yang hold/punya saldo IDR diatas 0 dan USD diatas 0?**
+```ruby
+# Jalankan di Rails Console (rails c)
+idr_users = Wallet.joins(:currency)
+                  .where(currencies: { code: 'IDR' })
+                  .where('wallets.balance > 0')
+                  .distinct
+                  .count(:user_id)
+
+usd_users = Wallet.joins(:currency)
+                  .where(currencies: { code: 'USD' })
+                  .where('wallets.balance > 0')
+                  .distinct
+                  .count(:user_id)
+
+selisih = idr_users - usd_users
+
+puts "💵 Pengguna saldo IDR > 0 : #{idr_users}"
+puts "💵 Pengguna saldo USD > 0 : #{usd_users}"
+puts "📊 Selisih                : #{selisih}"
+
+```
+
+`b`**🔍 Cek via REST API**
+
+**Contoh Request dengan Bearer Token (menggunakan cURL):**
+```bash
+curl -X GET "http://141.11.25.96:3000/reports/top_crypto_users?currency=BTC&start_date=2025-10-01&end_date=2025-10-07" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.0JsA7s0F251ERbLdyNgVMpppI6iv8sH52Lj4wDpP4fI" \
+  -H "Content-Type: application/json"
+
+```
+
 **4. Gambarkan infrastruktur yang terbaik menurut anda agar aplikasi web/API bisa berjalan dengan efektif, aman, dan baik untuk scale up?**  
 > ![Infrastruktur Aplikasi](assets/pic_2.png)
 >
