@@ -28,7 +28,7 @@
 >    → Dari segi user misal terapkan beberapa user / data yg di coba dulu versi baru  
 >    → JIka aman, Baru semua data pindahkan  
 >
-> Pakai Load Balancer  
+> d-) Pakai Load Balancer  
 >    → Load balancer membagi traffic ke beberapa server  
 >    → BIsa tambah server baru versi baru, turunkan server lama pelan pelan  
 >    → Jadi User tidak merakasan Downtime  
