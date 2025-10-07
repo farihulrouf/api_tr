@@ -210,7 +210,7 @@ curl -X GET "http://141.11.25.96:3000/reports/top_balance_change_day?currency=ID
 ---
 
 **6. Menurut anda, manakah yang lebih baik diantara SQL dan NoSQL? Jelaskan alasannya.**  
-> Menurutku dua dua nya bagus, tergantung situasi aja, kita pakai SQL, NO SQL  ? . Di project sebelumnya saya pakai Elastic Database karena Data social media biasanya JSON: misal tweet, komentar, post di Instagram → banyak field, nested misal (user, entities, hastag, url gambar, video dll)., jadi tinggal masukin aja  nested JSON, array, dan query di dalamnya gampang. .jika kasusnya transasi crypto saya akan pakai SQL buat nyimpen transaksi, saldo, dan data uang Kenapa? Karena SQL itu kayak lemari yang rapi banget ,Semua datanya punya kotak, label, dan aturan jelas.
+> Menurutku dua dua nya bagus, tergantung situasi aja, kita pakai SQL, NO SQL  ? . Di project sebelumnya saya pakai Elastic Database karena Data social media biasanya JSON: misal tweet, komentar, post di Instagram → banyak field, nested misal (user, entities, hastag, url gambar, video dll)., jadi tinggal masukin aja  nested JSON, array, dan query di dalamnya gampang. .jika kasusnya transaksi crypto saya akan pakai SQL buat nyimpen transaksi, saldo, dan data uang Kenapa? Karena SQL itu kayak lemari yang rapi banget ,Semua datanya punya kotak, label, dan aturan jelas.
 
 ---
 
