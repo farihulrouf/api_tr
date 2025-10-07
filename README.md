@@ -186,7 +186,7 @@ curl -X GET "http://141.11.25.96:3000/reports/top_balance_change_day?currency=ID
 >    → Blue versi yang di pakai saat ini  
 >    → Green versi yang akan di pasang  
 >
-> Alurnya saya pahami → Di pasang green dulu tapi tidak pakai user, jika Green Sudah oke, langsung alihkan semua user ke Green, dan seandainya ada masalah tinggal balik lagi saja yang BLUE.  
+> Alur yang saya pahami → Di pasang green dulu tapi tidak pakai user, jika Green Sudah oke, langsung alihkan semua user ke Green, dan seandainya ada masalah tinggal balik lagi saja yang BLUE.  
 >
 > Analogi saya seperti punya dua jalur jalan. Jalur lama itu tetep bisa di pakai, Nanti tinggal pidah aja mobilnya ke Jalur yang baru itu, kalau ada apa apa dengan jalur yg baru, mobil tetep bisa pakai jalur yg lama.  
 >
