@@ -1,5 +1,7 @@
+
 # 💬 Pertanyaan dan Jawaban
 
+**Ruby On rails saya coba run di http://141.11.25.96:3000/**  
 **1. Mengapa diperlukan database master & replica (slave) dalam pengoperasian sistem di environment production? Jelaskan!**  
 > Karena Master itu tempat nulis data, Replica itu tempat baca data Salinanya. Dengan begitu sistem jadi lebih cepat, aman, dan gak gampang Rusak. Kalau sewaktu waktu terjadi sesuatu yang ga di inginkan  dengan yang utama tinggal ambil aja salinanya.
 
