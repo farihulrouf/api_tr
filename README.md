@@ -221,7 +221,7 @@ curl -X GET "http://141.11.25.96:3000/reports/top_balance_change_day?currency=ID
 > d-)Simpan di tempat yag mudah di cari, bisa bikin file txt di folder khusus bisa, di simpan ke db juga bisa  
 > e-)Tambhakan id, dan waktu biar gampang nanti carinya  
 > f-)Bersihkan Log biar ga numpuk  
-> g-)JIka perlu kesepakatan kirim ke whatsapp Group yang terdiri dari Team Backend, jadi setiap orang bisa saling pantau (Di tempat kerja saya dulu saya bikin group WA nanti klo Log serius Ngirim ke Wa group)
+> g-)JIka perlu kesepakatan kirim ke whatsapp Group yang terdiri dari Team Backend, jadi setiap orang bisa saling pantau (Di tempat kerja saya dulu saya bikin group WA nanti klo Log serius Ngirim ke Wa group)..jadi bot itu nanti ngirim automatic ke group wa tentang log yg serius (semacam bot yg khusu ngirim log k Whatsapp atau telegram)
 
 ---
 
